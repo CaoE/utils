@@ -37,10 +37,10 @@ def test_re(input_file):
                     elif var.split(' ')[0] == "Backward":
                         if errm.find('derivative') != -1 or errm.find('differentiable') != -1:
                             sheet.cell(Raw+1, 5).value = 'N/A'
+                        elif errm.find('check_uniform_bounds') != -1 or errm.find('does not require grad') != -1 or errm.find('has no attribute') != -1:
+                            sheet.cell(Raw+1, 5).value = 'N/A'
                         elif errm.find('BFloat16') != -1 or errm.find('float') != -1 or errm.find('double') != -1 or errm.find('Float') != -1 or errm.find('Double') != -1:
                             sheet.cell(Raw+1, 5).value = 'N'
-                        elif errm.find('check_uniform_bounds') != -1 or errm.find('does not require grad') != -1 or errm.find('object') != -1:
-                            sheet.cell(Raw+1, 5).value = 'N/A'
                         else:
                             sheet.cell(Raw+1, 5).value = 'need check'
                 else:
@@ -49,7 +49,7 @@ def test_re(input_file):
                     elif var.split(' ')[0] == "Backward":
                         if errm.find('derivative') != -1 or errm.find('differentiable') != -1:
                             sheet.cell(Raw+1, 3).value = 'N/A'
-                        elif errm.find('check_uniform_bounds') != -1 or errm.find('does not require grad') != -1 or errm.find('object') != -1:
+                        elif errm.find('check_uniform_bounds') != -1 or errm.find('does not require grad') != -1 or errm.find('has no attribute') != -1:
                             sheet.cell(Raw+1, 3).value = 'N/A'
                         else:
                             sheet.cell(Raw+1, 3).value = 'need check'
